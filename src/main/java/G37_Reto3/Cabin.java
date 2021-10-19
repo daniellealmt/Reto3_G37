@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package Domingo_Reto3.Reto3;
+package G37_Reto3;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.io.Serializable;
@@ -18,7 +18,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "bike")
+@Table(name = "cabin")
 public class Cabin implements Serializable{
 
 @Id
@@ -31,15 +31,15 @@ public class Cabin implements Serializable{
     
     @ManyToOne
     @JoinColumn(name = "categoryId")
-    @JsonIgnoreProperties("bikes")
+    @JsonIgnoreProperties("cabins")
     private Categoria category;
 
-     @OneToMany(cascade = {CascadeType.PERSIST},mappedBy = "bike")
-    @JsonIgnoreProperties({"bike", "client"})
+     @OneToMany(cascade = {CascadeType.PERSIST},mappedBy = "cabin")
+    @JsonIgnoreProperties({"cabin", "client"})
     private List<Mensaje> messages;
 
-    @OneToMany(cascade = {CascadeType.PERSIST},mappedBy = "bike")
-    @JsonIgnoreProperties({"bike", "client"})
+    @OneToMany(cascade = {CascadeType.PERSIST},mappedBy = "cabin")
+    @JsonIgnoreProperties({"cabin", "client"})
     private List<Reservaciones> reservations;
 
     public Integer getId() {

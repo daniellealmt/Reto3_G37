@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package Domingo_Reto3.Reto3;
+package G37_Reto3;
 
 import java.util.List;
 import java.util.Optional;
@@ -19,42 +19,41 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
-
 /**
  *
  * @author DLEAL
  */
 @RestController
-@RequestMapping("/api/Message")
+@RequestMapping("/api/Cabin")
 @CrossOrigin(origins = "*", methods= {RequestMethod.GET,RequestMethod.POST,RequestMethod.PUT,RequestMethod.DELETE})
-public class ControladorMensaje {
+public class ControladorCabin {
     @Autowired
-    private ServiciosMensaje servico;
+    private ServiciosCabin servicio;
     @GetMapping("/all")
-    public List<Mensaje> getMessages(){
-        return servico.getAll();
+    public List<Cabin> getcabins(){
+        return servicio.getAll();
     }
 
     @GetMapping("/{id}")
-    public Optional<Mensaje> getMessage(@PathVariable("id") int messageId) {
-        return servico.getMessage(messageId);
+    public Optional<Cabin> getcabin(@PathVariable("id") int cabinId) {
+        return servicio.getcabin(cabinId);
     }
 
     @PostMapping("/save")
     @ResponseStatus(HttpStatus.CREATED)
-    public Mensaje save(@RequestBody Mensaje message) {
-        return servico.save(message);
+    public Cabin save(@RequestBody Cabin cabin) {
+        return servicio.save(cabin);
     }
     @PutMapping("/update")
     @ResponseStatus(HttpStatus.CREATED)
-    public Mensaje update(@RequestBody Mensaje message) {
-        return servico.update(message);
+    public Cabin update(@RequestBody Cabin cabin) {
+        return servicio.update(cabin);
     }
 
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public boolean delete(@PathVariable("id") int messageId) {
-        return servico.deleteMessage(messageId);
+    public boolean delete(@PathVariable("id") int cabinId) {
+        return servicio.deletecabin(cabinId);
     }
     
 }

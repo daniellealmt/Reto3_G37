@@ -4,7 +4,7 @@
 // 4. Servicios
 // 5. Controlador o Web
 
-package Domingo_Reto3.Reto3;
+package G37_Reto3;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
